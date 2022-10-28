@@ -2,8 +2,15 @@ var express = require("express");
 const app = express();
 const cors = require("cors");
 const { v4: uuidv4 } = require("uuid");
+const bodyParser = require("body-parser");
 
 app.use(express.json());
+
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 
 app.use(cors({ origin: ["http://localhost:3000"] }));
 
